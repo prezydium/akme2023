@@ -17,8 +17,11 @@ class NameDataProviderTest {
 
     @Test
     void shouldLoadSuccessfully() {
-        NameData janCount = underTest.getByName("JAN");
-        assertThat(janCount.count()).isEqualTo(1089394);
+        NameData janCapitalLettersCount = underTest.getByName("JAN");
+        assertThat(janCapitalLettersCount.count()).isEqualTo(1089394);
+
+        NameData janNotCapitalLettersCount = underTest.getByName("jan");
+        assertThat(janNotCapitalLettersCount.count()).isEqualTo(1089394);
     }
 
     @Test

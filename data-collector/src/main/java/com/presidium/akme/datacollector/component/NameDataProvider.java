@@ -24,8 +24,9 @@ public class NameDataProvider {
 
 
     public NameData getByName(String name) {
-        Optional<Long> nameCount = Optional.ofNullable(namesData.get(name));
-        return new NameData(name, nameCount.orElseThrow(NoNameFoundException::new));
+        String standarisedName = name.toUpperCase();
+        Optional<Long> nameCount = Optional.ofNullable(namesData.get(standarisedName));
+        return new NameData(standarisedName, nameCount.orElseThrow(NoNameFoundException::new));
     }
 
     @PostConstruct
